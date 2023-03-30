@@ -1,4 +1,6 @@
 #!/bin/bash
+# Pings all devices on the 10.0.30.0 subnet and reports active hosts
+# Usage: ./online.sh
 
 subnet="10.0.30"
 for host in {1..254}; do
