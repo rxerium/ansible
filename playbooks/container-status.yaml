@@ -5,7 +5,6 @@
 
 - name: Watchtower install
   hosts: "*"
-  gather_facts: no
 
   tasks:
   - name: Watchtower

@@ -1,0 +1,11 @@
+- name: Update MOTD for all CTs and VMs
+  hosts: "*"
+
+  tasks:
+  - name: Neofetch
+    shell: |
+      sudo apt install neofetch -y
+      neofetch
+      curl https://gist.githubusercontent.com/hakrishi/9750b1c9068938415d0f898d4490057c/raw/42316752f1b89a18e1dafe7ee82c2e0cf61647b3/neofetch.yaml -o ~/.config/neofetch/config.conf
+      sudo echo "neofetch;
+      echo "\n";" > /etc/profile.d/motd.sh
