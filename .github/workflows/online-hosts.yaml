@@ -3,7 +3,7 @@ name: Homelab Online Hosts
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 14 * * 1,2,3,4,5'
+    - cron: '0 14 * * 1'
 
 jobs:
   Homelab-Hosts:
