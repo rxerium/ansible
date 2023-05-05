@@ -22,6 +22,10 @@ jobs:
         sed -i '/^10\.0\.30\.1$/d' online.txt
         sed -i '/^10\.0\.30\.185$/d' online.txt
         sed -i '/^10\.0\.30\.197$/d' online.txt
+        sed -i '/^10\.0\.30\.3$/d' online.txt
+        sed -i '/^10\.0\.30\.182$/d' online.txt
+
+
 
 
 
