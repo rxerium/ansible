@@ -17,16 +17,8 @@ jobs:
 
     - name: Run scan script
       run: |
-        # Add the script content here
-        subnet="10.0.30."
-        for i in {1..254}; do
-          ip="${subnet}${i}"
-          ping -c 1 -W 1 $ip > /dev/null 2>&1
-          if [ $? -eq 0 ]; then
-            echo $ip is online
-            echo $ip >> online.txt
-          fi
-        done
+        nmap -sn 10.0.30.0/24 -oG - | awk '/Up$/{print $2}' > online.txt
+
 
     - name: Commit changes
       run: |
@@ -35,4 +27,3 @@ jobs:
             git add .
             git commit -m "online hosts update" -a || true
             git push
-      
