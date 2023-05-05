@@ -19,6 +19,11 @@ jobs:
       run: |
         nmap -sn 10.0.30.0/24 -oG - | awk '/Up$/{print $2}' > online.txt
         sed -i '/^10\.0\.30\.152$/d' online.txt
+        sed -i '/^10\.0\.30\.1$/d' online.txt
+        sed -i '/^10\.0\.30\.185$/d' online.txt
+        sed -i '/^10\.0\.30\.197$/d' online.txt
+
+
 
 
     - name: Commit changes
