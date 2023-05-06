@@ -1,5 +1,4 @@
-- hosts: "containers"
-  become_user: service_account
+- hosts: "*"
   tasks:
     - name: apt
       apt:
