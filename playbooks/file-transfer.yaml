@@ -1,8 +1,0 @@
-- name: Transfer file to multiple servers
-  hosts: all
-  become: true
-  tasks:
-    - name: Transfer file
-      copy:
-        src: /path/to/local/file
-        dest: /path/to/remote/file

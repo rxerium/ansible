@@ -1,4 +1,4 @@
-name: Container Uptime
+name: Host Uptime
 
 on:
   workflow_dispatch:
@@ -17,15 +17,10 @@ jobs:
 
     - name: Run scan script
       run: |
-        nmap -sn 10.0.30.0/24 -oG - | awk '/Up$/{print $2}' > containers.txt
-        sed -i '1s/^/[containers]\n/' containers.txt
+        nmap -sn 10.0.30.0/24 -oG - | awk '/Up$/{print $2}' > inventory/online-hosts.txt
+        sed -i '1s/^/[containers]\n/' online-hosts.txt
 
-        sed -i '/^10\.0\.30\.1$/d' containers.txt
-        sed -i '/^10\.0\.30\.2$/d' containers.txt
-        sed -i '/^10\.0\.30\.3$/d' containers.txt
-        sed -i '/^10\.0\.30\.197$/d' containers.txt
-        sed -i '/^10\.0\.30\.185$/d' containers.txt
-        sed -i '/^10\.0\.30\.152$/d' containers.txt
+        sed -i '/^10\.0\.30\.1$/d' inventory/online-hosts.txt
 
     - name: Commit changes
       run: |
