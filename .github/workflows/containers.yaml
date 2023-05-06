@@ -1,0 +1,34 @@
+name: Container Uptime
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 14 * * 1'
+
+jobs:
+  Homelab-Hosts:
+    runs-on: self-hosted
+    timeout-minutes: 10
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+
+    - name: Run scan script
+      run: |
+        nmap -sn 10.0.30.0/24 -oG - | awk '/Up$/{print $2}' > containers.txt
+        sed -i '1s/^/[containers]\n/' containers.txt
+
+        sed -i '/^10\.0\.30\.1$/d' containers.txt
+        sed -i '/^10\.0\.30\.197$/d' containers.txt
+        sed -i '/^10\.0\.30\.185$/d' containers.txt
+        sed -i '/^10\.0\.30\.152$/d' containers.txt
+
+    - name: Commit changes
+      run: |
+            git config --local user.email "hakrishi@pm.me"
+            git config --local user.name "hakrishi"
+            git add .
+            git commit -m "online hosts update" -a || true
+            git push

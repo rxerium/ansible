@@ -1,17 +1,6 @@
-- hosts: "*"
+- hosts: "containers"
   tasks:
     - name: apt
-      apt:
-        update_cache: yes
-        upgrade: 'yes'
-
-- hosts: all
-  become: true
-  vars:
-    remote_user: hakrishi
-
-  tasks: 
-    - name: aptVM
       apt:
         update_cache: yes
         upgrade: 'yes'
