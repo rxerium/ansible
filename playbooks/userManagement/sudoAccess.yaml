@@ -1,0 +1,7 @@
+- name: Gives sudo permissions to the service_account user
+  hosts: "*"
+
+  tasks:
+  - name: Sudo Permissions
+    shell: |
+      adduser service_account sudo

@@ -1,8 +1,0 @@
-- name: Create user on multiple servers
-  hosts: all
-  become: true
-  tasks:
-    - name: Create user
-      user:
-        name: USERNAME
-        state: present
