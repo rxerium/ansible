@@ -18,8 +18,6 @@ jobs:
     - name: Run scan script
       run: |
         nmap -sn 10.0.30.0/24 -oG - | awk '/Up$/{print $2}' > inventory/online-hosts.txt
-        sed -i '1s/^/[containers]\n/' inventory/online-hosts.txt
-
         sed -i '/^10\.0\.30\.1$/d' inventory/online-hosts.txt
 
     - name: Commit changes
