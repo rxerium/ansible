@@ -22,7 +22,7 @@ jobs:
         sed -i '/^10\.0\.30\.3$/d' inventory/online-hosts.txt
 
         sed -i 's/10\.0\.30\.185/10.0.30.185 ansible_user=hakrishi/g' inventory/online-hosts.txt
-        sed -i 's/10\.0\.30\.197/10.0.30.197 ansible_user=hakrishi/g' inventory/online-hosts.txt
+        sed -i 's/10\.0\.30\.197/10.0.30.197 ansible_user=hakrishi ansible_python_interpreter=/usr/bin/python3/g' inventory/online-hosts.txt
 
 
     - name: Commit changes
