@@ -1,8 +1,8 @@
 - hosts: "*"
-  sudo: yes
   tasks:
     - name: apt
       become: true
+      sudo: yes
       apt:
         update_cache: yes
         upgrade: 'yes'
