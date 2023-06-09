@@ -1,4 +1,5 @@
 - hosts: "*"
+  sudo: yes
   tasks:
     - name: apt
       become: true
