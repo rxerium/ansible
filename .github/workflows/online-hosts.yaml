@@ -19,6 +19,7 @@ jobs:
       run: |
         nmap -sn 10.0.30.0/24 -oG - | awk '/Up$/{print $2}' > inventory/online-hosts.txt
         sed -i '/^10\.0\.30\.1$/d' inventory/online-hosts.txt
+        sed -i '/^10\.0\.30\.2$/d' inventory/online-hosts.txt
         sed -i '/^10\.0\.30\.3$/d' inventory/online-hosts.txt
 
         sed -i 's/10\.0\.30\.185/10.0.30.185 ansible_user=hakrishi/g' inventory/online-hosts.txt
