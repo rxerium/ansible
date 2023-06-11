@@ -1,9 +1,7 @@
-- name: Updates
-  become: true
-  hosts: "*"
-
+- hosts: "*"
   tasks:
-  - name: Updates
-    shell: |
-      sudo apt update
-      sudo apt upgrade -y
+    - name: apt
+      become: true
+      apt:
+        update_cache: yes
+        upgrade: 'yes'
