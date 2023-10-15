@@ -30,7 +30,7 @@ jobs:
     - name: Commit changes
       run: |
             git config --local user.email "hakrishi@pm.me"
-            git config --local user.name "hakrishi"
+            git config --local user.name "rxerium"
             git add .
             git commit -m "online hosts update" -a || true
             git push
