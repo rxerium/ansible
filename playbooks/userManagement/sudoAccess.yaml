@@ -2,6 +2,6 @@
   hosts: "*"
 
   tasks:
-  - name: Sudo Permissions
-    shell: |
-      adduser service_account sudo
+    - name: Sudo Permissions
+      shell: |
+        adduser service_account sudo
